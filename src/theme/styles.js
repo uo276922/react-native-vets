@@ -1,10 +1,11 @@
-import { ActivityIndicator, Button } from "react-native-paper";
+import { ActivityIndicator, Avatar, Button, List } from "react-native-paper";
 import { Card } from "react-native-paper";
 import styled from "styled-components/native";
 import { colors } from "./colors";
 import { sizes } from "./sizes";
 import { TouchableOpacity } from "react-native";
 import { WebView } from "react-native-webview";
+import MapView from "react-native-maps";
 
 export const Address = styled.Text`
   font-family: ${(props) => props.theme.fonts.body};
@@ -83,4 +84,25 @@ export const ContactButton = styled(Button).attrs({
 })`
   padding: ${(props) => props.theme.space[0]};
   margin: ${(props) => props.theme.space[1]};
+`;
+export const SearchContainer = styled.View`
+  padding: ${(props) => props.theme.space[3]};
+`;
+export const Map = styled(MapView)`
+  height: 100%;
+  width: 100%;
+`;
+export const AvatarContainer = styled.View`
+  align-items: center;
+  padding: ${(props) => props.theme.space[3]};
+`;
+export const AvatarIcon = styled(Avatar.Icon).attrs({
+  size: 180,
+  backgroundColor: colors.button,
+})``;
+export const AvatarImage = styled(Avatar.Image).attrs({
+  size: 180,
+})``;
+export const SettingsItem = styled(List.Item)`
+  padding: ${(props) => props.theme.space[3]};
 `;
