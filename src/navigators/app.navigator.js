@@ -3,6 +3,9 @@ import { FontAwesome5, Ionicons } from "@expo/vector-icons";
 import { MapScreen } from "../screens/map.screen";
 import { SettingsNavigator } from "./settings.navigator";
 import { VetsNavigator } from "./vets.navigator";
+import { LocationsContextProvider } from "../services/location.context";
+import { VetsContextProvider } from "../services/vets.context";
+
 const Tab = createBottomTabNavigator();
 const TAB_ICON = {
   Vets: "briefcase-medical",
@@ -27,9 +30,13 @@ const screenOptions = ({ route }) => {
   }
 };
 export const AppNavigator = () => (
-  <Tab.Navigator screenOptions={screenOptions}>
-    <Tab.Screen name="Vets" component={VetsNavigator} />
-    <Tab.Screen name="Map" component={MapScreen} />
-    <Tab.Screen name="Settings" component={SettingsNavigator} />
-  </Tab.Navigator>
+  <LocationsContextProvider>
+    <VetsContextProvider>
+      <Tab.Navigator screenOptions={screenOptions}>
+        <Tab.Screen name="Vets" component={VetsNavigator} />
+        <Tab.Screen name="Map" component={MapScreen} />
+        <Tab.Screen name="Settings" component={SettingsNavigator} />
+      </Tab.Navigator>
+    </VetsContextProvider>
+  </LocationsContextProvider>
 );
