@@ -1,4 +1,10 @@
-import { ActivityIndicator, Avatar, Button, List } from "react-native-paper";
+import {
+  ActivityIndicator,
+  Avatar,
+  Button,
+  List,
+  TextInput,
+} from "react-native-paper";
 import { Card } from "react-native-paper";
 import styled from "styled-components/native";
 import { colors } from "./colors";
@@ -150,4 +156,11 @@ export const AuthButton = styled(Button).attrs({
 export const Title = styled.Text`
   font-size: ${(props) => props.theme.sizes[2]};
   font-weight: bold;
+`;
+export const AuthInput = styled(TextInput)`
+  width: ${(props) => props.theme.space[8]};
+  margin: ${(props) => props.theme.space[2]};
+`;
+export const ErrorContainer = styled.View`
+  height: ${(props) => props.theme.space[3]};
 `;
